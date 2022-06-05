@@ -6,7 +6,7 @@
 /*   By: phella <phella@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 22:13:09 by rtire             #+#    #+#             */
-/*   Updated: 2022/06/05 15:10:05 by phella           ###   ########.fr       */
+/*   Updated: 2022/06/05 16:41:55 by phella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,23 @@
 # define MINISHELL_H
 
 # include "libft/libft.h"
+# include <stdlib.h>
 # include <stdio.h>
+# include <string.h>
 # include <readline/readline.h>
 # include <readline/history.h>
+# include <stdbool.h>
 # include <signal.h>
+# include <unistd.h>
 # include <fcntl.h>
+# include <sys/types.h>
+# include <sys/wait.h>
+
+# define BLUE "\033[0;34m"
+# define WHITE "\033[0m"
+# define RED "\033[0;31m"
+# define GREEN "\033[0;32m"
+# define YELLOW "\033[0;33m"
 
 # define BLUE "\033[0;34m"
 # define GREEN "\033[0;32m"
@@ -68,6 +80,7 @@ char	**ft_join_shlvl(void);
 void	ft_free_mass(char **str);
 char	*ft_sjoin(char *s1, char *s2, int flag, int flag2);
 void	ft_loop(void);
+void	ft_proc_signal_handler(int signum);
 void	ft_signals(void);
 void	ft_handler(int sig);
 void	ft_preparsing(void);
@@ -104,10 +117,70 @@ void	ft_put_final_args(void);
 t_lst	*ft_put_lst_new(void);
 int		ft_open_file(t_lst *o, int flag);
 
-// list_ops.c
+// 1list_ops.c
 int	ft_lstsize3(t_lst *lst);
 t_lst	*ft_lstlast3(t_lst *lst);
 void	ft_lstadd_back3(t_lst **lst, t_lst *new);
 t_lst	*ft_lstnew3(void *content);
+// 1multyexe.c
+void	ft_wait(int *pid, int pipe_fd[2][2]);
+t_lst	*ft_first_proc(t_lst *tmp, int i, int *pid, int pipe_fd[2][2]);
+t_lst	*ft_second_proc(t_lst *tmp, int *i, int *pid, int pipe_fd[2][2]);
+void	ft_exe(t_lst *tmp, int *pid, int pipe_fd[2][2]);
+void	ft_multiexe(void);
+// 1ft_exit.c
+void	ft_exit_code_plus(t_lst *tmp);
+int		ft_check_num(char	*token);
+int		ft_exit(t_lst *tmp);
+// 1exe_utils.c
+void	ft_get_path(t_lst *tmp, int i);
+char	*ft_find_path(t_lst *tmp);
+void	ft_dup(t_lst *tmp, int i, int pipe_fd[2][2]);
+void	ft_dup2(t_lst *tmp, int i, int pipe_fd[2][2]);
+int		ft_interceptor(t_lst *tmp, int *pipe_fd);
+
+// 1cd.c
+void	ft_flag_action(char *path_env, char *old_path_env, int flag);
+void	ft_change_pwd(char *path, char *old_path);
+int		ft_find_home(void);
+void	ft_return_home(void);
+void	ft_cd(t_lst *tmp);
+// cd_utils.c
+void	ft_export_add_check(char *arg);
+int		ft_check_oldpwd(void);
+// 1env.c
+void	ft_env(t_lst *tmp, int *pipe);
+// 1exit.c
+void	ft_exit_code_plus(t_lst *tmp);
+int		ft_check_num(char	*token);
+int		ft_exit(t_lst *tmp);
+// 1export_utils.c
+int		ft_masslen(char **str);
+void	ft_export_add_env(char *arg, int len);
+void	ft_export_new_env(char *arg);
+int		ft_export_error_check(char *arg);
+void	ft_export_add(char *arg);
+// 1export_utils2.c
+void	ft_check_out_builtin(t_lst *tmp, int *fd, int *pipe);
+void	ft_replace_env(char *arg, char *buf, int i);
+// 1export.c
+void	ft_print_env(char **env, t_lst *tmp, int *pipe);
+void	ft_swap(char **env, int i, int *flag);
+void	ft_sort_env(char **env, t_lst *tmp, int *pipe);
+void	ft_export(t_lst *tmp, int *pipe);
+// 1pwd.c
+void	ft_pwd(t_lst *tmp, int *pipe);
+// 1unset.c
+void	ft_env_tail(int i);
+int		ft_unset_error_check(char *arg);
+void	ft_unset_env(char *arg);
+void	ft_unset(t_lst *tmp);
+// 1echo.c
+void	ft_check_flag_n(t_lst *tmp, int *i, int *flag);
+void	ft_echo(t_lst *tmp, int *pipe);
+// 1ft_join.c
+char	*ft_check_flag(int flag, int i, int k);
+char	*ft_join(char const *s1, char const *s2, int flag);
+
 
 #endif

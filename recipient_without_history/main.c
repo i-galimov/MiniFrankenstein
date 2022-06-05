@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rtire <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: phella <phella@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 18:47:12 by rtire             #+#    #+#             */
-/*   Updated: 2022/05/20 18:47:20 by rtire            ###   ########.fr       */
+/*   Updated: 2022/06/05 15:31:04 by phella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_loop(void)
 		g_o.input = readline(GREEN"minizhopa-> "WHITE);
 		if (!g_o.input)
 		{
-			printf("\x1B[1A\x1B[12C""exit\n");
+			printf("exit\n");
 			break ;
 		}
 		if (!g_o.input[0])
@@ -30,11 +30,11 @@ void	ft_loop(void)
 		}
 		add_history(g_o.input);
 		ft_preparsing();
-//		if (g_o.final && !ft_strcmp(g_o.final->execve[0], "exit")
-//			&& ft_lstsize(g_o.final) == 1)
-//			if (!ft_exit(g_o.final))
-//				break ;
-//		ft_multiexe();
+		if (g_o.final && !ft_strcmp(g_o.final->execve[0], "exit")
+			&& ft_lstsize3(g_o.final) == 1)
+			if (!ft_exit(g_o.final))
+				break ;
+		ft_multiexe();
 		ft_free_all();
 	}
 }

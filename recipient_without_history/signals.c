@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   signals.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rtire <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: phella <phella@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 00:19:07 by rtire             #+#    #+#             */
-/*   Updated: 2022/06/05 00:19:11 by rtire            ###   ########.fr       */
+/*   Updated: 2022/06/05 15:45:25 by phella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+void	ft_proc_signal_handler(int signum)
+{
+	if (signum == SIGINT)
+	{
+		write(1, "\n", 1);
+		signal(SIGINT, ft_proc_signal_handler);
+	}
+	if (signum == SIGQUIT)
+	{
+		write(1, "\n", 1);
+		signal(SIGQUIT, ft_proc_signal_handler);
+	}
+}
 
 void	ft_handler(int sig)
 {

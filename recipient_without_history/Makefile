@@ -6,15 +6,17 @@
 #    By: phella <phella@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 18:31:58 by rtire             #+#    #+#              #
-#    Updated: 2022/06/05 15:08:48 by phella           ###   ########.fr        #
+#    Updated: 2022/06/05 16:41:03 by phella           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
 SOURCE = main.c free.c shlvl.c utils.c init.c signals.c preparsing.c split_mod.c\
-		quotes.c dollar.c preparsing_utils.c redirects.c heredoc.c new_list_ops.c\
-		parsing.c 
+		quotes.c dollar.c preparsing_utils.c redirects.c heredoc.c parsing.c \
+		1new_list_ops.c 1multyexe.c 1exe_utils.c \
+		1exit.c 1pwd.c 1unset.c 1echo.c 1export.c 1cd.c 1env.c 1export_utils.c 1export_utils2.c\
+		1cd_utils.c 1ft_join.c
 
 HEADER = minishell.h
 
