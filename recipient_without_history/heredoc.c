@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rtire <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: phella <phella@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 01:45:29 by rtire             #+#    #+#             */
-/*   Updated: 2022/06/05 01:45:34 by rtire            ###   ########.fr       */
+/*   Updated: 2022/06/05 15:06:39 by phella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,5 @@ void	ft_put_final_args(void)
 	if (!g_o.final)
 		g_o.final = ft_put_lst_new();
 	else
-		ft_lstadd_back(&g_o.final, ft_put_lst_new());
+		ft_lstadd_back3(&g_o.final, ft_put_lst_new());
 }

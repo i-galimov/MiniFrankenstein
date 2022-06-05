@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   preparsing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rtire <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: phella <phella@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 00:56:27 by rtire             #+#    #+#             */
-/*   Updated: 2022/06/05 00:57:05 by rtire            ###   ########.fr       */
+/*   Updated: 2022/06/05 15:05:14 by phella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ void	ft_preparsing(void)
 	while (g_o.split[++i])
 	{
 		if (!g_o.args)
-			g_o.args = ft_lstnew(ft_strdup(g_o.split[i]));
+			g_o.args = ft_lstnew3(ft_strdup(g_o.split[i]));
 		else
-			ft_lstadd_back(&g_o.args, ft_lstnew(ft_strdup(g_o.split[i])));
+			ft_lstadd_back3(&g_o.args, ft_lstnew3(ft_strdup(g_o.split[i])));
 	}
 	ft_check_list();
 	ft_parsing();

@@ -3,17 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rtire <marvin@42.fr>                       +#+  +:+       +#+         #
+#    By: phella <phella@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 18:31:58 by rtire             #+#    #+#              #
-#    Updated: 2022/05/20 18:32:08 by rtire            ###   ########.fr        #
+#    Updated: 2022/06/05 15:08:48 by phella           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
 SOURCE = main.c free.c shlvl.c utils.c init.c signals.c preparsing.c split_mod.c\
-		quotes.c dollar.c preparsing_utils.c redirects.c heredoc.c
+		quotes.c dollar.c preparsing_utils.c redirects.c heredoc.c new_list_ops.c\
+		parsing.c 
 
 HEADER = minishell.h
 

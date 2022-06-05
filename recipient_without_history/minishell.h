@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rtire <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: phella <phella@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 22:13:09 by rtire             #+#    #+#             */
-/*   Updated: 2022/05/22 22:13:16 by rtire            ###   ########.fr       */
+/*   Updated: 2022/06/05 15:10:05 by phella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,11 @@ void	ft_check_put_list(int flag);
 void	ft_put_final_args(void);
 t_lst	*ft_put_lst_new(void);
 int		ft_open_file(t_lst *o, int flag);
+
+// list_ops.c
+int	ft_lstsize3(t_lst *lst);
+t_lst	*ft_lstlast3(t_lst *lst);
+void	ft_lstadd_back3(t_lst **lst, t_lst *new);
+t_lst	*ft_lstnew3(void *content);
 
 #endif
